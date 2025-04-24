@@ -1,61 +1,124 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Book Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The **Book Management System** is a modern, full-stack Laravel web application designed to manage books, authors, and categories efficiently. With a clean UI and well-structured backend, it simulates a basic library or bookstore panel using Laravel's MVC architecture, Blade templating engine, and Bootstrap 5.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🧠 Project Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This project showcases the practical implementation of:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- CRUD operations
+- Relational database modeling using Eloquent ORM
+- UI/UX design using Blade & Bootstrap
+- Modular, scalable code structure following Laravel standards
 
-## Learning Laravel
+The system allows users to:
+- Manage books and associate them with authors and categories
+- Navigate easily using an interactive navbar
+- Access a dashboard displaying live statistics
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🗃️ Database Design
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The system follows a relational schema with three main entities: **Books**, **Authors**, and **Categories**.
 
-## Laravel Sponsors
+### 📘 Books Table
+| Column      | Type        | Description                        |
+|-------------|-------------|------------------------------------|
+| id          | BIGINT      | Primary Key                        |
+| title       | STRING      | Title of the book                  |
+| author_id   | FOREIGN KEY | Reference to `authors.id`          |
+| category_id | FOREIGN KEY | Reference to `categories.id`       |
+| description | TEXT        | Book description                   |
+| price       | NUMERIC     | Book price                         |
+| quantity    | INTEGER     | Available quantity                 |
+| created_at  | TIMESTAMP   | Created date                       |
+| updated_at  | TIMESTAMP   | Last updated date                  |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 👤 Authors Table
+| Column     | Type      | Description                 |
+|------------|-----------|-----------------------------|
+| id         | BIGINT    | Primary Key                 |
+| name       | STRING    | Full name of the author     |
+| created_at | TIMESTAMP | Created date                |
+| updated_at | TIMESTAMP | Last updated date           |
 
-### Premium Partners
+### 🏷️ Categories Table
+| Column      | Type      | Description                  |
+|-------------|-----------|------------------------------|
+| id          | BIGINT    | Primary Key                  |
+| name        | STRING    | Name of the category         |
+| description | TEXT      | Detailed category description|
+| created_at  | TIMESTAMP | Created date                 |
+| updated_at  | TIMESTAMP | Last updated date            |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 🔗 Relationships
 
-## Contributing
+- One **Author** has many **Books**
+- One **Category** has many **Books**
+- Each **Book** belongs to one **Author** and one **Category**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+> This relationship structure is implemented using Eloquent ORM’s `hasMany`, `belongsTo` relationships.
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🌐 Application Flow
 
-## Security Vulnerabilities
+### 🏠 Welcome Dashboard
+- Displays total count of books, authors, and categories using animated Bootstrap cards.
+- Cards act as links to their respective management pages.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🔀 Navigation
+- A responsive top navbar enables seamless switching between:
+    - Books
+    - Authors
+    - Categories
 
-## License
+### ✍️ CRUD Functionality
+- **Create** new records using intuitive forms
+- **Read** all data in structured Bootstrap tables
+- **Update** any record with editable forms
+- **Delete** records with confirmation prompts
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🧰 Technologies Used
+
+| Tool/Library     | Purpose                            |
+|------------------|------------------------------------|
+| Laravel 12       | Backend framework (PHP MVC)        |
+| Blade            | View templating engine             |
+| Eloquent ORM     | Database abstraction layer         |
+| Bootstrap 5      | Frontend styling & components      |
+| MySQL            | Relational database                |
+| Laravel UI       | Authentication scaffolding         |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
+    git clone https://github.com/monirkrori/Book_Mangment_System.git
+    cd Book_Mangment_System
+```
+### 2. Environment setup 
+
+```bash
+    cp .env.example .env
+    php artisan key:generate
+```
+
+### 3.Run Database Migrations
+
+```bash
+    php artisan migrate 
+```
+
+
+
+
+
+
