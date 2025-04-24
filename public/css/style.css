@@ -1,0 +1,74 @@
+/* styles.css */
+
+.text-purple {
+    color: #6a00ff;
+}
+
+.bg-purple {
+    background-color: #a974ff !important;
+}
+
+.btn-purple {
+    background-color: #a974ff;
+    color: #fff;
+    border: none;
+}
+
+.btn-purple:hover,
+.btn-outline-purple:hover {
+    background-color: #9152f2;
+    color: #fff;
+}
+
+.btn-outline-purple {
+    color: #a974ff;
+    border: 1px solid #a974ff;
+    background-color: #fff;
+}
+
+body {
+    background-color: #f8f6ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: #a974ff;
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #ffe0f7 !important;
+}
+
+.book-card {
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+    margin-left: 4px;
+}
+
+.alert-success {
+    background-color: #d1f3e0;
+    color: #155724;
+}
+
+footer {
+    background-color: #eae0ff;
+}
+
+footer p {
+    color: #6a5d7b;
+    font-size: 0.9rem;
+}
