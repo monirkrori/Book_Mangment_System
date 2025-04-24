@@ -111,10 +111,12 @@ The system follows a relational schema with three main entities: **Books**, **Au
     php artisan key:generate
 ```
 
-### 3.Run Database Migrations
+### 3.Run Database Migrations && seeders
 
 ```bash
     php artisan migrate 
+    php artisan db:seed 
+    
 ```
 
 
